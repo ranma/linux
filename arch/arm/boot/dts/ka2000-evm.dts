@@ -1,0 +1,21 @@
+/*
+ * ka2000-evm.dts - Device Tree file for KeyAsic KA2000 reference board
+ */
+/dts-v1/;
+/include/ "ka2000.dtsi"
+
+/ {
+	model = "Atmel KA2000 EVM";
+	compatible = "keyasic,ka2000", "keyasic,ka2000-evm";
+
+	clocks {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		main_clock: clock@0 {
+			compatible = "keyasic,osc", "fixed-clock";
+			clock-frequency = <24000000>;
+		};
+	};
+};

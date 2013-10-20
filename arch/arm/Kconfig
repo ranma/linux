@@ -493,6 +493,29 @@ config ARCH_IXP4XX
 	help
 	  Support for Intel's IXP4XX (XScale) family of processors.
 
+config ARCH_KA2000
+	bool "KeyAsic KA2000"
+	select ARCH_HAS_CPUFREQ
+	select CPU_FREQ
+	select DEBUG_SECTION_MISMATCH
+	select CPU_ARM926T
+	select AUTO_ZRELADDR
+	select COMMON_CLK
+	select CLKSRC_MMIO
+	select GENERIC_CLOCKEVENTS
+	select SPARSE_IRQ
+	select DEBUG_LL
+	select SERIAL_8250
+	select SERIAL_8250_CONSOLE
+	select EARLY_PRINTK
+	select SPI
+	select SPI_BITBANG
+	select SPI_MASTER
+	select MTD
+	select MTD_M25P80
+	help
+	  Support for the KeyAsic KA2000 SoC
+
 config ARCH_DOVE
 	bool "Marvell Dove"
 	select ARCH_REQUIRE_GPIOLIB

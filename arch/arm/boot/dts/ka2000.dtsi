@@ -1,0 +1,97 @@
+/*
+ * ka2000.dtsi - Device Tree Include file for KA2000 family SoC
+ *
+ * Licensed under GPLv2 only.
+ */
+
+/include/ "skeleton.dtsi"
+
+/ {
+	model = "KeyAsic KA2000 family SoC";
+	compatible = "keyasic,ka2000";
+	/* interrupt-parent = <&aic>; */
+
+	aliases {
+		serial0 = &dbgu;
+	};
+	chosen {
+		bootargs = "console=ttyS0,38400";
+	};
+
+	cpus {
+		cpu@0 {
+			compatible = "arm,arm926ejs";
+		};
+	};
+
+	memory {
+		reg = <0x00000000 0x02000000>;
+	};
+
+	scu@a0000000 {
+		compatible = "keyasic,ka2000-scu";
+		interrupt-controller;
+		reg = <0xa0000000 0x1000>;
+	};
+
+	spi@a0001000 {
+		compatible = "keyasic,ka2000-spi";
+		reg = <0xa0001000 0x1000>;
+	};
+
+	timer@a0002000 {
+		compatible = "keyasic,ka2000-timer";
+		reg = <0xa0002000 0x1000>;
+	};
+
+	watchdog@a0003000 {
+		compatible = "keyasic,ka2000-wdt";
+		reg = <0xa0003000 0x1000>;
+	};
+
+	dbgu: serial@a0004000 {
+		compatible = "keyasic,ka2000-uart";
+		reg = <0xa0004000 0x1000>;
+		reg-shift = <2>;
+	};
+
+	gpio0: gpio@a0005000 {
+		compatible = "keyasic,ka2000-gpio";
+		reg = <0xa0005000 0x1000>;
+	};
+
+	intc: interrupt-controller@a0006000 {
+		compatible = "keyasic,ka2000-intc";
+		reg = <0xa0006000 0x1000>;
+	};
+
+	dma@a0007000 {
+		compatible = "keyasic,ka2000-dma";
+		reg = <0xa0007000 0x1000>;
+	};
+
+	ramc@a0008000 {
+		compatible = "keyasic,ka2000-sdramc";
+		reg = <0xa0008000 0x1000>;
+	};
+
+	mmc0: mmc@a0009000 {
+		compatible = "keyasic,ka2000-hsmci";
+		reg = <0xa0009000 0x1000>;
+	};
+
+	sdwitch@a000a000 {
+		compatible = "keyasic,ka2000-sdswitch";
+		reg = <0xa000a000 0x1000>;
+	};
+
+	mmc1: mmc@a000b000 {
+		compatible = "keyasic,ka2000-hsmci";
+		reg = <0xa000b000 0x1000>;
+	};
+
+	gpio1: gpio@a000c000 {
+		compatible = "keyasic,ka2000-gpio";
+		reg = <0xa000c000 0x1000>;
+	};
+};

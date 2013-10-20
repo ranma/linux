@@ -1,0 +1,16 @@
+if ARCH_KA2000
+
+config SOC_KA2000
+	bool
+	select CPU_ARM926T
+	select GENERIC_CLOCKEVENTS
+	select MULTI_IRQ_HANDLER
+	select SPARSE_IRQ
+	select MACH_KA2000_DT
+	select USE_OF
+	select SERIAL_8250
+	select ARM_ATAG_DTB_COMPAT
+
+endmenu
+
+endif
